@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="TO BE OR NOT TO BE">
+    <meta name="description" content="">
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
@@ -92,8 +92,25 @@
                     
 
                         
+                    
+
+                        
                         <li>
                             <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -144,7 +161,7 @@
                 <div class="site-heading">
                     <h1>Jia`s Blog</h1>
                     <!--<hr class="small">-->
-                    <span class="subheading"></span>
+                    <span class="subheading"> TO BE OR NOT TO BE </span>
                 </div>
             </div>
         </div>
@@ -170,33 +187,75 @@
             
                 <!-- Main Content -->
 
+    <div class="post-preview">
+        <a href="/2021/09/12/centos7-install-config/">
+            <h2 class="post-title">
+                CentOS7安装配置
+            </h2>
+            <h3 class="post-subtitle">
+                CentOS7安装及后续操作小记
+            </h3>
+            <div class="post-content-preview">
+                前言经常重装CentOS7，又经常记不住配置步骤，简单记录下，避免太盲目。
+VM安装配置CentOS7参考：https://blog.csdn.net/babyxue/article/details/80970526
+配置连接（外网、主机/虚拟机互通）使用桥接模式，参考：https://www.cnblogs.com/DJOSIMON/p/14927176.html
+配置国内源
+备份 cd ......
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Deng Jia on
+            2021-09-12
+        </p>
+    </div>
+    <hr>
 
-<div class="post-preview">
+    <div class="post-preview">
+        <a href="/2021/09/12/maven-packaging/">
+            <h2 class="post-title">
+                构建分布式项目时子模块相互依赖打包技巧
+            </h2>
+            <h3 class="post-subtitle">
+                IDEA部署微服务，在用Maven构建项目时子模块相互依赖，使用Maven插件进行打包。
+            </h3>
+            <div class="post-content-preview">
+                场景最近在学习使用Jenkins自动化部署分布式微服务的时候，需要将微服务打成Jar包发送到服务器制作成镜像供Jenkins拉取运行，了解到 spring-boot-maven-plugin 插件可以完成Maven工程的打包任务。
+问题直接在父pom文件引入如下插件将会导致Maven打的微服务Jar包不会将外部依赖导入其中，且其他模块在依赖本模块的时候可能出现找不到类的报错。即无法通过 ja......
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Deng Jia on
+            2021-09-12
+        </p>
+    </div>
+    <hr>
 
-    <a href="/2021/09/12/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Deng Jia on
-        2021-09-12
-    </p>
+    <div class="post-preview">
+        <a href="/2021/09/12/fastdfs-nginx/">
+            <h2 class="post-title">
+                FastDFS + Nginx 文件上传
+            </h2>
+            <h3 class="post-subtitle">
+                FastDFS结合Nginx实现文件上传、下载、删除功能。
+            </h3>
+            <div class="post-content-preview">
+                前往源码地址：https://gitee.com/DJOSIMON/fastdfs
+Nginx
+Nginx：&emsp;&emsp; C语言开发的高性能的 http服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。应用场景：&emsp;&emsp; 1）http服务器；&emsp;&emsp; 2）虚拟主机；&emsp;&emsp; 3）反向代理，负载均衡。
 
-</div>
-<hr>
-
+环境依赖
+yu......
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by Deng Jia on
+            2021-09-12
+        </p>
+    </div>
+    <hr>
 
 
 <!-- Pager -->
-
 <ul class="pager">
     
     
@@ -217,6 +276,34 @@ Qu......
                 sidebar-container
             ">
                 <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#Shell" title="Shell" rel="2">Shell</a>
+                            
+                        
+                            
+                            <a href="/tags/#CentOS7" title="CentOS7" rel="2">CentOS7</a>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                    </div>
+                </section>
                 
 
                 <!-- Short About -->
@@ -252,6 +339,21 @@ Qu......
                 
                 <!-- Friends Blog -->
                 
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://github.com/DENG-JIAAA/" target="_blank">Github</a></li>
+                    
+                        <li><a href="https://gitee.com/DJOSIMON" target="_blank">Gitee</a></li>
+                    
+                        <li><a href="https://www.cnblogs.com/DJOSIMON/" target="_blank">cnblogs</a></li>
+                    
+                        <li><a href="https://huangxuan.me/" target="_blank">Hux Blog</a></li>
+                    
+                </ul>
+                
             </div>
         
     </div>
@@ -265,32 +367,34 @@ Qu......
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                
-                
-                
+                    
+                    
+                    
 
-                
+                    
 
-                
+                    
 
-                
+                    
 
-                
+                    
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Jia`s Blog 2021 
+                    Copyright &copy; Jia`s Blog 2021
                     <br>
-                    Theme by <a target="_blank" rel="noopener" href="http://huangxuan.me">Hux</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
+                    Theme by <a target="_blank" rel="noopener" href="https://github.com/huxpro/huxpro.github.io">Hux</a>
+
+                    <!--<span style="display: inline-block; margin: 0 5px;">
                         <i class="fa fa-heart"></i>
-                    </span> 
-                    Ported by <a target="_blank" rel="noopener" href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    </span>
+                    Ported by <a target="_blank" rel="noopener" href="http://blog.kaijun.rocks">Kaijun</a> |
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="91px" height="20px"
                         src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
-                    </iframe>
+                    </iframe>-->
+
                 </p>
             </div>
         </div>
@@ -312,27 +416,30 @@ Qu......
 <script src="/js/hux-blog.min.js"></script>
 
 
-
 <!-- async load function -->
 <script>
     function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
     }
 </script>
 
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
      so Huxblog drops it officially.
 
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
 -->
 <!--
     <script>
@@ -343,12 +450,11 @@ Qu......
     <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
 -->
 
-
 <!-- jquery.tagcloud.js -->
 <script>
     // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://example.com/js/jquery.tagcloud.js",function(){
+    if ($('#tag_cloud').length !== 0) {
+        async("http://example.com/js/jquery.tagcloud.js", function () {
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -360,19 +466,16 @@ Qu......
 
 <!--fastClick.js -->
 <script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
         var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
+        if ($nav) FastClick.attach($nav);
     })
 </script>
-
 
 <!-- Google Analytics -->
 
 
-
-
-<!-- Baidu Tongji -->
+<!-- Baidu TongJi -->
 
 
 <!-- Side Catalog -->

@@ -13,11 +13,11 @@
 
     <title>
         
-          About - 邓佳的博客 | Jia Blog
+          CentOS7安装配置 - 邓佳的博客 | Jia Blog
         
     </title>
 
-    <link rel="canonical" href="http://example.com/about/">
+    <link rel="canonical" href="http://example.com/2021/09/12/centos7-install-config/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -56,10 +56,7 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
-<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
-<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <!-- hack iOS CSS :active style -->
@@ -156,167 +153,122 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/about-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://example.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/index.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>About</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading"> 芸 术 は 永 远 の 美 し い で す </span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Shell" title="Shell">Shell</a>
+                        
+                          <a class="tag" href="/tags/#CentOS7" title="CentOS7">CentOS7</a>
+                        
+                          <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+                        
+                    </div>
+                    <h1>CentOS7安装配置</h1>
+                    <h2 class="subheading">CentOS7安装及后续操作小记</h2>
+                    <span class="meta">
+                        Posted by Deng Jia on
+                        2021-09-12
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <h1 align="center">
-    <i><b>
-        <span style="color: #7400b8">W</span>
-        <span style="color: #6930c3">E</span>
-        <span style="color: #5e60ce">L</span>
-        <span style="color: #5390d9">C</span>
-        <span style="color: #4ea8de">O</span>
-        <span style="color: #48bfe3">M</span>
-        <span style="color: #56cfe1">E</span>
-        <span style="color: #64dfdf">!</span>
-        <span style="color: #72efdd">!</span>
-        <span style="color: #80ffdb">!</span>
-    </b></i>
-    &nbsp;
-    <i><b>
-        I`m <a target="_blank" rel="noopener" href="https://github.com/DENG-JIAAA/">
-            <span style="color: #03071e">D</span><span style="color: #370617">E</span><span style="color: #6a040f">N</span><span style="color: #9d0208">G</span><span style="color: #d00000">_</span><span style="color: #dc2f02">J</span><span style="color: #e85d04">I</span><span style="color: #f48c06">A</span><span style="color: #faa307">A</span><span style="color: #ffba08">A</span>
-        </a>
-    </b></i>
-</h1>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-
-    <div id="aplayer-oprwnbeK" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="1311530752" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
-    ></div>
-
-<h3 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me:"></a>About Me:</h3><div align="left">
-
-<ul>
-<li>👋 &nbsp; Hi, I’m a JAVA Developer from Chengdu, China.</li>
-<li>💪 &nbsp; I am moving towards full stack development</li>
-<li>🚀 &nbsp; and look forward to making progress with you!</div>
-✨✨✨✨✨
-<br>
-<br></li>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>经常重装CentOS7，又经常记不住配置步骤，简单记录下，避免太盲目。</p>
+<h2 id="VM安装配置CentOS7"><a href="#VM安装配置CentOS7" class="headerlink" title="VM安装配置CentOS7"></a>VM安装配置CentOS7</h2><p>参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/babyxue/article/details/80970526">https://blog.csdn.net/babyxue/article/details/80970526</a></p>
+<h2 id="配置连接（外网、主机-虚拟机互通）"><a href="#配置连接（外网、主机-虚拟机互通）" class="headerlink" title="配置连接（外网、主机/虚拟机互通）"></a>配置连接（外网、主机/虚拟机互通）</h2><p>使用桥接模式，参考：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/DJOSIMON/p/14927176.html">https://www.cnblogs.com/DJOSIMON/p/14927176.html</a></p>
+<h2 id="配置国内源"><a href="#配置国内源" class="headerlink" title="配置国内源"></a>配置国内源</h2><ul>
+<li>备份 <code>cd /etc/yum.repos.d/ &amp;&amp; mkdir repo_bak &amp;&amp; cp *.repo repo_bak</code></li>
+<li>获取阿里开源镜像 <code>wget http://mirrors.aliyun.com/repo/Centos-7.repo</code></li>
+<li>清除系统yum缓存，生成新缓存 <code>yum clean all &amp;&amp; yum makecache</code></li>
+<li>安装epel源<br><code>yum list | grep epel-release</code><br><code>yum install -y epel-release</code></li>
+<li>获取阿里的epel源<br><code>wget -O /etc/yum.repos.d/epel-7.repo http://mirrors.aliyun.com/repo/epel-7.repo</code></li>
+<li>再次清除系统yum缓存，生成新缓存 <code>yum clean all &amp;&amp; yum makecache</code></li>
+<li>查看可用yum源和所有源<br><code>yum repolist enabled</code><br><code>yum repolist all</code></li>
+<li>更新 <code>yum update</code></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> top.dj;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: DengJia</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021/9/11 21:30</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;TO BE OR NOT TO BE&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><ul>
+<li>状态 <code>systemctl status firewalld.service</code></li>
+<li>关闭 <code>systemctl stop firewalld.service</code></li>
+<li>永久关闭 <code>systemctl disable firewalld.service</code></li>
+</ul>
+<h2 id="客户端工具"><a href="#客户端工具" class="headerlink" title="客户端工具"></a>客户端工具</h2><ul>
+<li>MobaXterm</li>
+</ul>
 
-<p>✨✨✨✨✨</p>
 
+                <hr>
 
-                <!-- 如果开启评论功能 -->
                 
-                    <hr>
 
+                <ul class="pager">
                     
-
                     
-
-
+                        <li class="next">
+                            <a href="/2021/09/12/maven-packaging/" data-toggle="tooltip" data-placement="top" title="构建分布式项目时子模块相互依赖打包技巧">Next Post ▶</a>
+                        </li>
                     
+                </ul>
 
-                    
-
-
+                
 
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Shell" title="Shell">Shell</a>
                         
-                            
+                          <a class="tag" href="/tags/#CentOS7" title="CentOS7">CentOS7</a>
                         
-                            
-                        
-                            
-                            <a href="/tags/#Shell" title="Shell" rel="2">Shell</a>
-                            
-                        
-                            
-                            <a href="/tags/#CentOS7" title="CentOS7" rel="2">CentOS7</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
+                          <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
                         
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>TO BE OR NOT TO BE</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-
-                            
-
-                            
-
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -335,9 +287,17 @@
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
 
 
     <!-- Footer -->
