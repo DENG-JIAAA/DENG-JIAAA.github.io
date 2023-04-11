@@ -89,8 +89,6 @@
                     </li>
                     
                         
-                    
-                        
                             <li>
                                 <a href="/about/">About</a>
                             </li>
@@ -100,6 +98,8 @@
                             <li>
                                 <a href="/archives/">Archives</a>
                             </li>
+                        
+                    
                         
                     
                         
@@ -171,17 +171,23 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
+                    <a href="#CentOS7" title="CentOS7" rel="2">CentOS7</a>
+                
+                    <a href="#Docker" title="Docker" rel="3">Docker</a>
+                
+                    <a href="#MySQL" title="MySQL" rel="3">MySQL</a>
+                
+                    <a href="#Redis" title="Redis" rel="2">Redis</a>
+                
+                    <a href="#Tomcat" title="Tomcat" rel="1">Tomcat</a>
+                
                     <a href="#Nginx" title="Nginx" rel="1">Nginx</a>
                 
                     <a href="#FastDFS" title="FastDFS" rel="1">FastDFS</a>
                 
-                    <a href="#Shell" title="Shell" rel="1">Shell</a>
+                    <a href="#Shell" title="Shell" rel="2">Shell</a>
                 
-                    <a href="#CentOS7" title="CentOS7" rel="1">CentOS7</a>
-                
-                    <a href="#Java" title="Java" rel="1">Java</a>
-                
-                    <a href="#Docker" title="Docker" rel="1">Docker</a>
+                    <a href="#Java" title="Java" rel="3">Java</a>
                 
                     <a href="#Maven" title="Maven" rel="2">Maven</a>
                 
@@ -189,9 +195,259 @@
                 
                     <a href="#Xml" title="Xml" rel="1">Xml</a>
                 
+                    <a href="#SpringBoot" title="SpringBoot" rel="1">SpringBoot</a>
+                
+                    <a href="#CAS" title="CAS" rel="1">CAS</a>
+                
+                    <a href="#Harbor" title="Harbor" rel="1">Harbor</a>
+                
             </div>
 
             <!-- 标签列表 -->
+            
+                <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="CentOS7">
+                    <a class="tag-text" href="#CentOS7">CentOS7</a>
+                </span>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/09/07/c7-install/">
+                                <h2 class="post-title">
+                                    CentOS7安装及后续
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        CentOS7安装配置
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/09/12/fastdfs-nginx/">
+                                <h2 class="post-title">
+                                    FastDFS + Nginx 文件上传
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        FastDFS结合Nginx实现文件上传、下载、删除功能。
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                </div>
+            
+                <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Docker">
+                    <a class="tag-text" href="#Docker">Docker</a>
+                </span>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/09/07/c7-install/">
+                                <h2 class="post-title">
+                                    CentOS7安装及后续
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        CentOS7安装配置
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/06/16/dockerfile-micro-image/">
+                                <h2 class="post-title">
+                                    使用Dockerfile制作微服务镜像
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        JAR打包微服务、Dockerfile脚本文件、构建微服务镜像、外部访问微服务
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/06/16/up-image-harbor/">
+                                <h2 class="post-title">
+                                    将本地镜像上传到Harbor仓库以及下载
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        将本地镜像打上标签推送到Harbor仓库以及从仓库进行拉取镜像
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                </div>
+            
+                <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="MySQL">
+                    <a class="tag-text" href="#MySQL">MySQL</a>
+                </span>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/09/07/c7-install/">
+                                <h2 class="post-title">
+                                    CentOS7安装及后续
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        CentOS7安装配置
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/09/26/mysql-master-slave/">
+                                <h2 class="post-title">
+                                    MySQL主从复制读写分离
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        SpringBoot整合多数据源实现读写分离
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/07/05/shell-mysql-java/">
+                                <h2 class="post-title">
+                                    Shell、MySQL常用命令、Java相关
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        Shell、MySQL常用命令、Java相关
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                </div>
+            
+                <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Redis">
+                    <a class="tag-text" href="#Redis">Redis</a>
+                </span>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/09/07/c7-install/">
+                                <h2 class="post-title">
+                                    CentOS7安装及后续
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        CentOS7安装配置
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2023/03/08/redis+cas/">
+                                <h2 class="post-title">
+                                    Redis + CAS，配置自增单号
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        Redis + CAS（乐观锁），配置自增业务单号
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                </div>
+            
+                <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Tomcat">
+                    <a class="tag-text" href="#Tomcat">Tomcat</a>
+                </span>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/09/07/c7-install/">
+                                <h2 class="post-title">
+                                    CentOS7安装及后续
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        CentOS7安装配置
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                </div>
             
                 <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="Nginx">
@@ -269,25 +525,18 @@
                         </div>
                         <hr>
                     
-                </div>
-            
-                <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="CentOS7">
-                    <a class="tag-text" href="#CentOS7">CentOS7</a>
-                </span>
-                    
                         <!-- <li class="listing-item">
                         <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
                         <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                         </li> -->
                         <div class="post-preview">
-                            <a href="/2021/09/12/fastdfs-nginx/">
+                            <a href="/2021/07/05/shell-mysql-java/">
                                 <h2 class="post-title">
-                                    FastDFS + Nginx 文件上传
+                                    Shell、MySQL常用命令、Java相关
                                 </h2>
                                 
                                     <h3 class="post-subtitle">
-                                        FastDFS结合Nginx实现文件上传、下载、删除功能。
+                                        Shell、MySQL常用命令、Java相关
                                     </h3>
                                 
                             </a>
@@ -321,25 +570,37 @@
                         </div>
                         <hr>
                     
-                </div>
-            
-                <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Docker">
-                    <a class="tag-text" href="#Docker">Docker</a>
-                </span>
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2023/03/08/redis+cas/">
+                                <h2 class="post-title">
+                                    Redis + CAS，配置自增单号
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        Redis + CAS（乐观锁），配置自增业务单号
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
                     
                         <!-- <li class="listing-item">
                         <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
                         <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                         </li> -->
                         <div class="post-preview">
-                            <a href="/2021/06/16/dockerfile-micro-image/">
+                            <a href="/2021/07/05/shell-mysql-java/">
                                 <h2 class="post-title">
-                                    使用Dockerfile制作微服务镜像
+                                    Shell、MySQL常用命令、Java相关
                                 </h2>
                                 
                                     <h3 class="post-subtitle">
-                                        JAR打包微服务、Dockerfile脚本文件、构建微服务镜像、外部访问微服务
+                                        Shell、MySQL常用命令、Java相关
                                     </h3>
                                 
                             </a>
@@ -437,6 +698,84 @@
                                 
                                     <h3 class="post-subtitle">
                                         IDEA部署微服务，在用Maven构建项目时子模块相互依赖，使用Maven插件进行打包。
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                </div>
+            
+                <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="SpringBoot">
+                    <a class="tag-text" href="#SpringBoot">SpringBoot</a>
+                </span>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/09/26/mysql-master-slave/">
+                                <h2 class="post-title">
+                                    MySQL主从复制读写分离
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        SpringBoot整合多数据源实现读写分离
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                </div>
+            
+                <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="CAS">
+                    <a class="tag-text" href="#CAS">CAS</a>
+                </span>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2023/03/08/redis+cas/">
+                                <h2 class="post-title">
+                                    Redis + CAS，配置自增单号
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        Redis + CAS（乐观锁），配置自增业务单号
+                                    </h3>
+                                
+                            </a>
+                            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                        </div>
+                        <hr>
+                    
+                </div>
+            
+                <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Harbor">
+                    <a class="tag-text" href="#Harbor">Harbor</a>
+                </span>
+                    
+                        <!-- <li class="listing-item">
+                        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li> -->
+                        <div class="post-preview">
+                            <a href="/2021/06/16/up-image-harbor/">
+                                <h2 class="post-title">
+                                    将本地镜像上传到Harbor仓库以及下载
+                                </h2>
+                                
+                                    <h3 class="post-subtitle">
+                                        将本地镜像打上标签推送到Harbor仓库以及从仓库进行拉取镜像
                                     </h3>
                                 
                             </a>

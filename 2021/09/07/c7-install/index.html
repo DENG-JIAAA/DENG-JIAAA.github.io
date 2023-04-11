@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一名Java开发人员。">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          CentOS7安装及后续 - 邓佳的博客 | Jia Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://dengjia.top/2021/09/07/c7-install/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.min.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Jia`s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/archives/">Archives</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                            <li>
+                                <a href="/tags/">Tags</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+<!-- Main Content -->
+
+<!-- Image to hack wechat -->
+<!-- <img src="http://dengjia.top/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/index.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#CentOS7" title="CentOS7">CentOS7</a>
+                        
+                          <a class="tag" href="/tags/#Docker" title="Docker">Docker</a>
+                        
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
+                        
+                          <a class="tag" href="/tags/#Redis" title="Redis">Redis</a>
+                        
+                          <a class="tag" href="/tags/#Tomcat" title="Tomcat">Tomcat</a>
+                        
+                    </div>
+                    <h1>CentOS7安装及后续</h1>
+                    <h2 class="subheading">CentOS7安装配置</h2>
+                    <span class="meta">
+                        Posted by Deng Jia on
+                        2021-09-07
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>经常重装CentOS7，又经常记不住配置步骤，简单记录下，避免太盲目。</p>
+<h3 id="VM安装配置CentOS7"><a href="#VM安装配置CentOS7" class="headerlink" title="VM安装配置CentOS7"></a>VM安装配置CentOS7</h3><p>参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/babyxue/article/details/80970526">https://blog.csdn.net/babyxue/article/details/80970526</a></p>
+<h3 id="配置连接（外网、主机-虚拟机互通）"><a href="#配置连接（外网、主机-虚拟机互通）" class="headerlink" title="配置连接（外网、主机/虚拟机互通）"></a>配置连接（外网、主机/虚拟机互通）</h3><p>使用桥接模式，参考：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/DJOSIMON/p/14927176.html">https://www.cnblogs.com/DJOSIMON/p/14927176.html</a></p>
+<h3 id="centos7-linux发行版本-相关操作"><a href="#centos7-linux发行版本-相关操作" class="headerlink" title="centos7 linux发行版本 相关操作"></a>centos7 linux发行版本 相关操作</h3><h4 id="版本查看"><a href="#版本查看" class="headerlink" title="版本查看"></a>版本查看</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、查看CentOS镜像版本</span></span><br><span class="line">[root@c7 dev]# cat /etc/redhat-release</span><br><span class="line">CentOS Linux release 7.9.2009 (Core)</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ...</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="配置国内源"><a href="#配置国内源" class="headerlink" title="配置国内源"></a>配置国内源</h4><ul>
+<li>备份</li>
+</ul>
+<p><code>cd /etc/yum.repos.d/ &amp;&amp; mkdir repo_bak &amp;&amp; cp *.repo repo_bak</code></p>
+<ul>
+<li>获取阿里开源镜像</li>
+</ul>
+<p><code>wget http://mirrors.aliyun.com/repo/Centos-7.repo</code></p>
+<ul>
+<li>清除系统yum缓存，生成新缓存</li>
+</ul>
+<p><code>yum clean all &amp;&amp; yum makecache</code></p>
+<ul>
+<li>安装epel源</li>
+</ul>
+<p><code>yum list | grep epel-release</code></p>
+<p><code>yum install -y epel-release</code></p>
+<ul>
+<li>获取阿里的epel源</li>
+</ul>
+<p><code>wget -O /etc/yum.repos.d/epel-7.repo http://mirrors.aliyun.com/repo/epel-7.repo</code></p>
+<ul>
+<li>再次清除系统yum缓存，生成新缓存</li>
+</ul>
+<p><code>yum clean all &amp;&amp; yum makecache</code></p>
+<ul>
+<li>查看可用yum源和所有源</li>
+</ul>
+<p><code>yum repolist enabled</code></p>
+<p><code>yum repolist all</code></p>
+<ul>
+<li>更新</li>
+</ul>
+<p><code>yum update</code></p>
+<ul>
+<li>yum常用命令</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">yum常用命令</span><br><span class="line">删除软件：yum remove AAA-x.x.x.rpm或者yum erase foo-x.x.x.rpm</span><br><span class="line">升级软件：yum upgrade AAA或者yum update AAA</span><br><span class="line">查询信息：yum info AAA</span><br><span class="line">搜索软件（以包含foo字段为例）：yum search AAA</span><br><span class="line">显示软件包依赖关系：yum deplist AAA</span><br><span class="line"> </span><br><span class="line">　　 -q 静默执行 </span><br><span class="line">　　 -t 忽略错误</span><br><span class="line">　　-R[分钟] 设置等待时间</span><br><span class="line">　　-y 自动应答yes</span><br><span class="line">　　--skip-broken 忽略依赖问题</span><br><span class="line">　　--nogpgcheck 忽略GPG验证</span><br><span class="line"> </span><br><span class="line">　　check-update 检查可更新的包</span><br><span class="line">　　clean all    清除全部[缓存]</span><br><span class="line">　　clean packages 清除临时包文件（/var/cache/yum 下文件）</span><br><span class="line">　　clean headers  清除rpm头文件</span><br><span class="line">　　clean oldheaders 清除旧的rpm头文件</span><br><span class="line">　　deplist 列出包的依赖</span><br><span class="line">　　list 可安装和可更新的RPM包</span><br><span class="line">　　list installed 已安装的包</span><br><span class="line">　　list extras 已安装且不在资源库的包</span><br><span class="line">　　info 可安装和可更新的RPM包 信息</span><br><span class="line">　　info installed 已安装包的信息(-qa 参数相似)</span><br><span class="line">　　install[RPM包] 安装包</span><br><span class="line">　　localinstall 安装本地的 RPM包</span><br><span class="line">　　update[RPM包] 更新包</span><br><span class="line">　　upgrade 升级系统</span><br><span class="line">　　search[关键词] 搜索包</span><br><span class="line">　　provides[关键词] 搜索特定包文件名</span><br><span class="line">　　reinstall[RPM包] 重新安装包</span><br><span class="line">　　repolist 显示资源库的配置</span><br><span class="line">　　resolvedep 指定依赖</span><br><span class="line">　　remove[RPM包] 卸载包</span><br><span class="line">    makecache  生成缓存</span><br></pre></td></tr></table></figure>
+
+<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><ul>
+<li>状态</li>
+</ul>
+<p><code>systemctl status firewalld.service</code></p>
+<ul>
+<li>关闭</li>
+</ul>
+<p><code>systemctl stop firewalld.service</code></p>
+<ul>
+<li>永久关闭</li>
+</ul>
+<p><code>systemctl disable firewalld.service</code></p>
+<h3 id="客户端工具"><a href="#客户端工具" class="headerlink" title="客户端工具"></a>客户端工具</h3><ul>
+<li>MobaXterm</li>
+</ul>
+<h3 id="安装zookeeper（单机、集群）"><a href="#安装zookeeper（单机、集群）" class="headerlink" title="安装zookeeper（单机、集群）"></a>安装zookeeper（单机、集群）</h3><p>参考：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzkwMDE1MzkwNQ==&mid=2247496058&idx=1&sn=f3265299d90fde9dd9a4f4afe88411f8&source=41#wechat_redirect">kafka_with_zookeeper</a></p>
+<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><ul>
+<li>安装Docker</li>
+</ul>
+<blockquote>
+<p>备注：-y 表示不询问 使用默认配置进行安装，等待提示 完毕！</p>
+</blockquote>
+<p><code>yum install -y docker</code></p>
+<ul>
+<li>查看是否安装成功</li>
+</ul>
+<blockquote>
+<p>备注：命令为 查看yum安装完成文件列表 并 筛选docker安装信息 如下</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker.x86_64                           2:1.13.1-209.git7d71120.el7.centos</span><br><span class="line">docker-client.x86_64                    2:1.13.1-209.git7d71120.el7.centos</span><br><span class="line">docker-common.x86_64                    2:1.13.1-209.git7d71120.el7.centos</span><br></pre></td></tr></table></figure>
+
+<p><code>yum list installed | grep docker</code></p>
+<ul>
+<li><p>启动docker服务<br><code>systemctl start docker</code></p>
+</li>
+<li><p>查看是否启动成功<br><code>systemctl status docker</code></p>
+</li>
+<li><p>查看docker版本、信息<br><code>docker -v</code><br><code>docker info</code></p>
+</li>
+<li><p>修改镜像文件拉取地址</p>
+</li>
+</ul>
+<blockquote>
+<p>官方地址为国外地址安装缓慢可进行配置</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [</span><br><span class="line">        &quot;http://hub-mirror.c.163.com&quot;,</span><br><span class="line">        &quot;https://docker.mirrors.ustc.edu.cn&quot;,</span><br><span class="line">        &quot;https://registry.docker-cn.com&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>vim /etc/docker/daemon.json</code></p>
+<ul>
+<li>重启docker</li>
+</ul>
+<p><code>systemctl restart docker</code></p>
+<ul>
+<li>Docker搜索镜像</li>
+</ul>
+<p><code>docker search &lt;镜像名称&gt;</code></p>
+<h4 id="Docker部署MySQL"><a href="#Docker部署MySQL" class="headerlink" title="Docker部署MySQL"></a>Docker部署MySQL</h4><ul>
+<li>拉取MySQL镜像</li>
+</ul>
+<blockquote>
+<p>备注：docker pull 默认到官方参考拉取(已经通过配置源解决速度问题) mysql:8.0 镜像名:镜像tag</p>
+</blockquote>
+<p><code>docker pull mysql:8.0</code></p>
+<ul>
+<li><p>查看镜像安装情况<br><code>docker images</code></p>
+</li>
+<li><p>启动docker中镜像</p>
+</li>
+</ul>
+<blockquote>
+<p>备注：<br>–name 服务启动别名设置<br>-p 端口映射 宿主机端口:镜像运行端口<br>-e 设置root帐号密码<br>-d 镜像名:tag 使用守护进程模式启动</p>
+</blockquote>
+<p><code>docker run --name mysql8.0 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:8.0</code></p>
+<ul>
+<li>查看运行的镜像</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                               NAMES</span><br><span class="line">7f0079ac6e6c        mysql:8.0           &quot;docker-entrypoint...&quot;   32 minutes ago      Up 32 minutes       0.0.0.0:3306-&gt;3306/tcp, 33060/tcp   mysql8.0</span><br></pre></td></tr></table></figure>
+
+<p><code>docker ps -a</code></p>
+<ul>
+<li>进入容器</li>
+</ul>
+<blockquote>
+<p>备注：<br>exec docker进入容器命令<br>-it 容器中服务别名<br>/bin/bash 表示命令行模式（与 -d 后台守护进行模式启动 形成两种运行方式）</p>
+</blockquote>
+<p><code>docker exec -it mysql8.0 /bin/bash</code></p>
+<ul>
+<li><p>运行MySQL<br><code>cd /usr/bin</code><br><code>mysql -u root -p</code></p>
+</li>
+<li><p>设置容器自启动</p>
+</li>
+</ul>
+<blockquote>
+<p>适用于容器已经被创建，我们想要修改容器的重启策略</p>
+</blockquote>
+<p><code>docker update --restart=always mysql8.0</code></p>
+<h4 id="Docker部署Redis"><a href="#Docker部署Redis" class="headerlink" title="Docker部署Redis"></a>Docker部署Redis</h4><ul>
+<li>拉取最新redis</li>
+</ul>
+<p><code>docker pull redis</code></p>
+<ul>
+<li>创建宿主机挂载目录（将redis 的配置文件进行挂载）</li>
+</ul>
+<blockquote>
+<p>挂载：即将宿主的文件和容器内部目录相关联，相互绑定，在宿主机内修改文件的话也随之修改容器内部文件<br>以配置文件方式启动 redis 容器<br>-p：递归创建多级目录<br>以下命令，是不存在就直接创建 conf、data 文件夹</p>
+</blockquote>
+<p><code>mkdir -p /home/dj/tmp/redis/conf &amp;&amp; mkdir -p /home/dj/tmp/redis/data</code></p>
+<ul>
+<li>通过网络下载配置文件</li>
+</ul>
+<blockquote>
+<p>-O：定义本地文件名</p>
+</blockquote>
+<p><code>wget -O redis.conf http://download.redis.io/redis-stable/redis.conf</code></p>
+<ul>
+<li>修改配置</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Redis默认不是以守护进程的方式运行，可以通过该配置项修改，使用yes启用守护进程</span></span><br><span class="line">daemonize no</span><br><span class="line"><span class="meta">#</span><span class="bash"> 指定Redis监听端口，默认端口为6379</span></span><br><span class="line">port 6379</span><br><span class="line"><span class="meta">#</span><span class="bash"> 绑定的主机地址，不要绑定容器的本地127.0.0.1地址，因为这样就无法在容器外部访问</span></span><br><span class="line">bind 0.0.0.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 默认yes，如果设置为yes，则只允许在本机的回环连接，其他机器无法连接。</span></span><br><span class="line">protected-mode no</span><br><span class="line"><span class="meta">#</span><span class="bash"> 需要密码则打开</span></span><br><span class="line">requirepass 123456</span><br><span class="line"><span class="meta">#</span><span class="bash"> 持久化</span></span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动redis容器</li>
+</ul>
+<blockquote>
+<p>1、–name：给这个容器取一个名字；<br>2、–privileged=true：开启了权限需要加此参数，不然会拒绝访问；<br>3、–restart=always：总是开机启动；<br>4、-p 16379:6379：将6379端口挂载出去为16379；<br>5、-v：数据卷挂载；<br>6、/home/dj/dev/redis/conf/redis.conf:/etc/redis/redis.conf：这里是将liunx路径下的redis.conf和redis下的redis.conf挂载在一起；<br>7、/home/redis/myredis/data:/data：这个同上；<br>8、-d redis：表示后台启动redis；<br>9、redis-server</p>
+</blockquote>
+<p>/etc/redis/redis.conf：以配置文件启动redis，加载容器内的conf文件，最终找到的是挂载的目录/etc/redis/redis.conf也就是liunx下的/home/dj/dev/redis/conf/redis.conf。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name redis \</span><br><span class="line">--privileged=true \</span><br><span class="line">--restart=always \</span><br><span class="line">-p 16379:6379 \</span><br><span class="line">-v /home/dj/dev/redis/conf/redis.conf:/etc/redis/redis.conf \</span><br><span class="line">-v /home/dj/dev/redis/data:/data \</span><br><span class="line">-d redis \</span><br><span class="line">redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看启动状态</li>
+</ul>
+<p><code>docker ps -a | grep redis</code></p>
+<ul>
+<li>查看容器运行日志</li>
+</ul>
+<blockquote>
+<p>–since 30m：查看此容器30分钟之内的日志情况。</p>
+</blockquote>
+<p><code>docker logs --since 30m redis</code></p>
+<ul>
+<li>进入容器</li>
+</ul>
+<p><code>docker exec -it redis /bin/bash</code>再<code>redis-cli</code> 或者直接这样写 <code>docker exec -it redis redis-cli</code></p>
+<ul>
+<li>验证密码</li>
+</ul>
+<p><code>config get requirepass</code><br><code>auth 123456</code></p>
+<ul>
+<li>redis.conf 配置文件</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://files-cdn.cnblogs.com/files/DJOSIMON/redis.sh?t=1667732188" download="redis.conf">点击下载</a></p>
+<ul>
+<li>删除redis容器</li>
+</ul>
+<p>先将容器停止运行<br><code>docker stop redis</code></p>
+<p>再删除容器<br><code>docker rm redis</code></p>
+<p>最后删除镜像<br><code>docker rmi redis</code></p>
+<h4 id="Docker部署Tomcat"><a href="#Docker部署Tomcat" class="headerlink" title="Docker部署Tomcat"></a>Docker部署Tomcat</h4><ul>
+<li><p>拉取镜像<br><code>docker pull tomcat</code></p>
+</li>
+<li><p>查看拉取的latest镜像的具体版本<br><code>docker image inspect redis:latest | grep -i version</code></p>
+</li>
+<li><p>运行Tomcat容器</p>
+</li>
+</ul>
+<blockquote>
+<p>若端口被占用，可以指定容器和主机的映射端口，前者是外围访问（宿主机）端口，后者是容器内部端口。<br>–privileged=true：<br>1、使用该参数，container内的root拥有真正的root权限；<br>2、否则，container内的root只是外部的一个普通用户权限；<br>3、privileged启动的容器，可以看到很多host上的设备，并且可以执行mount；<br>4、甚至允许你在docker容器中启动docker容器。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangxuelei036/article/details/107457712">https://blog.csdn.net/wangxuelei036/article/details/107457712</a><br>-v /home/dj/dev/tomcat/test:/usr/local/tomcat/webapps/test：宿主机与容器内部目录挂载</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name tomcat \</span><br><span class="line">--privileged=true \</span><br><span class="line">-p 18080:8080 \</span><br><span class="line">-v /home/dj/dev/tomcat/test:/usr/local/tomcat/webapps/test \</span><br><span class="line">-d tomcat</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>访问IP:18080</li>
+</ul>
+<blockquote>
+<p>可能提示404，通过<code>docker cp tomcat:/usr/local/tomcat/bin ./</code>可以把bin拷出来，方便排错，</p>
+<p>其实原因在于容器内部的webapps目录下，只有一个挂载的test目录，再无其他，当然访问报错；<br>解决思路：<br>1、可<code>docker exec -it tomcat /bin/bash</code>进入容器内部，<br><code>cd /usr/local/tomcat/</code>切换到tomcat目录下，<br>可以肯定的是，webapps下仅有一个test（这个还是我们手动挂载的，不然一个也没有）目录，<br>百度说的是将webapps删掉，再将webapps.dist重命名未webapps即可，这个方法可行，<br>但我们挂载了test（此文件夹正在使用），webapps是删除不了的，<br>另一个思路就是进入到webapps.dist重命名的目录下执行<code>cp -rp * ../webapps/</code>将文件拷过去，问题同样得到解决。<br>这个时候再进行访问IP:18080就没问题了。</p>
+<p>但另启一个tomcat的时候，又会遇到同样的问题，更换<code>tomcat 8.0.52</code>版本镜像可以彻底解决这一问题。</p>
+</blockquote>
+<h4 id="部署web引用"><a href="#部署web引用" class="headerlink" title="部署web引用"></a>部署web引用</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32351227/article/details/78673591?spm=1001.2101.3001.6650.4&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-78673591-blog-123689108.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-78673591-blog-123689108.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=9">https://blog.csdn.net/qq_32351227/article/details/78673591?spm=1001.2101.3001.6650.4&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4-78673591-blog-123689108.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4-78673591-blog-123689108.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=9</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43698078/article/details/125762086">https://blog.csdn.net/qq_43698078/article/details/125762086</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_31569671/article/details/116877267">https://blog.csdn.net/weixin_31569671/article/details/116877267</a></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2021/09/12/fastdfs-nginx/" data-toggle="tooltip" data-placement="top" title="FastDFS + Nginx 文件上传">◀ Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2021/07/05/shell-mysql-java/" data-toggle="tooltip" data-placement="top" title="Shell、MySQL常用命令、Java相关">Next Post ▶</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#CentOS7" title="CentOS7">CentOS7</a>
+                        
+                          <a class="tag" href="/tags/#Docker" title="Docker">Docker</a>
+                        
+                          <a class="tag" href="/tags/#MySQL" title="MySQL">MySQL</a>
+                        
+                          <a class="tag" href="/tags/#Redis" title="Redis">Redis</a>
+                        
+                          <a class="tag" href="/tags/#Tomcat" title="Tomcat">Tomcat</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://github.com/DENG-JIAAA/" target="_blank">Github</a></li>
+                    
+                        <li><a href="https://gitee.com/DENG-JIAAA" target="_blank">Gitee</a></li>
+                    
+                        <li><a href="https://www.cnblogs.com/DJOSIMON/" target="_blank">cnblogs</a></li>
+                    
+                        <li><a href="https://huangxuan.me/" target="_blank">Hux Blog</a></li>
+                    
+                        <li><a href="http://kaijun.rocks/hexo-theme-huxblog/" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                        <li>
+                            <a target="_blank" href="https://twitter.com/DENG_JIAAA">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </a>
+                        </li>
+                    
+                    
+
+                    
+                        <li>
+                            <a target="_blank" href="http://weibo.com/dengjiaaa">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/jia.deng.568089">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a target="_blank" href="https://github.com/DENG-JIAAA">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 2020-2023 <a href="http://dengjia.top/">Jia`s Blog</a>
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="https://github.com/huxpro/huxpro.github.io">Hux</a>
+
+                    <!--<span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Ported by <a target="_blank" rel="noopener" href="http://blog.kaijun.rocks">Kaijun</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>-->
+
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if ($('#tag_cloud').length !== 0) {
+        async("http://dengjia.top/js/jquery.tagcloud.js", function () {
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+<!-- Baidu TongJi -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://dengjia.top/img/icon_wechat.png" width="0" height="0"/>
+<!-- Migrate from head to bottom, no longer block render and still work -->
+</body>
+
+</html>
